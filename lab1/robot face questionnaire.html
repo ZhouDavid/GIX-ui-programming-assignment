@@ -1,0 +1,160 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="https://pingendo.com/assets/bootstrap/bootstrap-4.0.0-beta.1.css" type="text/css"> </head>
+
+<body>
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="" style="text-align:center">Robot Face Questionnaire</h1>
+          <h4 style="text-align:center">Please rate this face in terms of the following scales</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4" >
+          <img id="img-fluid" class="img-fluid d-block" src="https://homes.cs.washington.edu/~mcakmak/faces/no_pupil_aido.png" onclick="randomize()">
+          <h4 class="text-left">
+            <br>
+            <br>
+            <br>
+            <br> Name this robot:
+            <br> </h4>
+          <ul class="breadcrumb bg-light" style="margin-bottom:0px;margin-top:0px">
+            <input class="breadcrumb-item" value="e.g. Blue faced robot"> </ul>
+        </div>
+        <div class="col-md-8">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>Masculin</td>
+                <td>
+                  <div class="btn-group">
+                    <p>
+                      <input type="radio" name='identity1'>　</p>
+                    <p>
+                      <input type="radio" name='identity1'>　</p>
+                    <p>
+                      <input type="radio" checked="True" name='identity1'>　</p>
+                    <p>
+                      <input type="radio" name='identity1'>　</p>
+                    <p>
+                      <input type="radio" name='identity1'>　</p>
+                  </div>
+                </td>
+                <td>Feminine</td>
+              </tr>
+              <tr>
+                <td>Childlike</td>
+                <td>
+                  <div class="btn-group">
+                    <p>
+                      <input type="radio" name='identity2'>　</p>
+                    <p>
+                      <input type="radio" name='identity2'>　</p>
+                    <p>
+                      <input type="radio" checked="True" name='identity2'>　</p>
+                    <p>
+                      <input type="radio" name='identity2'>　</p>
+                    <p>
+                      <input type="radio" name='identity2'>　</p>
+                  </div>
+                </td>
+                <td>Mature</td>
+              </tr>
+              <tr>
+                <td>Unfriendly</td>
+                <td>
+                  <div class="btn-group">
+                   <p>
+                      <input type="radio" name='identity3'>　</p>
+                    <p>
+                      <input type="radio" name='identity3'>　</p>
+                    <p>
+                      <input type="radio" checked="True" name='identity3'>　</p>
+                    <p>
+                      <input type="radio" name='identity3'>　</p>
+                    <p>
+                      <input type="radio" name='identity3'>　</p>
+                  </div>
+                </td>
+                <td>Friendly</td>
+              </tr>
+              <tr>
+                <td>Unintelligent</td>
+                <td>
+                  <div class="btn-group">
+                   <p>
+                      <input type="radio" name='identity4'>　</p>
+                    <p>
+                      <input type="radio" name='identity4'>　</p>
+                    <p>
+                      <input type="radio" checked="True" name='identity4'>　</p>
+                    <p>
+                      <input type="radio" name='identity4'>　</p>
+                    <p>
+                      <input type="radio" name='identity4'>　</p>
+                  </div>
+                </td>
+                <td>Intelligent</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h4 style="text-align:center">Which of the following jobs is this robot suitable for?</h4>
+          <div class="col-md-12 text-center">
+            <div class="btn-group">
+              <p>
+                <input type="checkbox" name="vehicle" value="Bike"> Security　</p>
+              <p>
+                <input type="checkbox" name="vehicle" value="Bike"> Service　</p>
+              <p>
+                <input type="checkbox" name="vehicle" value="Bike"> Education　</p>
+              <p>
+                <input name="vehicle" type="checkbox" value="Bike"> Industrial　</p>
+              <p>
+                <input type="checkbox" name="vehicle" value="Bike"> Entertainment　</p>
+            </div>
+          </div>
+          <div class="col-md-12 text-center">
+            <a id="c_button" class="btn pi-draggable btn-success" href="">Submit</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-5">
+    <div class="container">
+      <div class="row"> </div>
+    </div>
+    <script type="text/javascript">
+      function randomize(){
+        src = "https://homes.cs.washington.edu/~mcakmak/faces/"
+        pngList=['close_spacing_aido.png','wide_spacing_aido.png','no_pupil_aido.png','no_mouth_aido.png']
+        seed = Math.floor(Math.random()*100)%4
+        src = src+pngList[seed]
+        document.getElementById("img-fluid").src = src;
+      }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="https://pingendo.com/assets/bootstrap/bootstrap-4.0.0-beta.1.css" type="text/css">
+  <script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    var int = setInterval("closeEye()",3500)
+    var mousex = 0
+    var mousey = 0
+    var track = false
+    var isChat = false
+    var faceStatus = 0
+	 	function closeEye(){
+			$("#left-eye-open").hide()	
+      $("#right-eye-open").hide()
+      $("#left-eye-close").show()
+      $("#right-eye-close").show()
+			setTimeout("openEye()",100)
+		}
+		function openEye(){
+      $("#left-eye-close").hide()  
+      $("#right-eye-close").hide()
+      $("#left-eye-open").show()
+      $("#right-eye-open").show()
+		}
+  </script>
+</head>
+
+<body>
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4" style="text-align:right"> <svg id="face" class="face" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve"
+            onclick="changeFace()">
+				<g>
+					<path class="st0" d="M27,2.5c1.4,0,2.5,1.1,2.5,2.5v22.2c0,1.4-1.1,2.5-2.5,2.5H4.8c-1.4,0-2.5-1.1-2.5-2.5V4.9
+						c0-1.4,1.1-2.5,2.5-2.5H27 M27,0H4.8C2.1,0-0.1,2.2-0.1,4.9v22.2c0,2.7,2.2,4.9,4.9,4.9H27c2.7,0,4.9-2.2,4.9-4.9V4.9
+						C31.9,2.2,29.7,0,27,0L27,0z"></path>
+
+            <path style="display:none" id="active-mouse" class="st1" d="M23.1,20.8c0,3.5-3.2,6.3-7.1,6.3c-3.9,0-7.1-2.8-7.1-6.3s3.2,0,7.1,0C19.9,20.8,23.1,17.3,23.1,20.8z"></path>
+
+
+
+        <path style="display:none" id="negative-mouse" class="st1" d="M8.2,22.4c-0.4-0.6-0.1-1.4,0.7-1.8c4.3-2.1,9.3-2.1,13.5,0c0.8,0.4,1.1,1.2,0.7,1.8l0,0
+      c-0.4,0.6-1.1,0.7-1.8,0.4c-3.6-1.8-7.8-1.8-11.4,0C9.3,23.1,8.5,23,8.2,22.4L8.2,22.4z"></path>
+
+
+					<path id="neutral-mouse" class="st1" d="M17.6,23.2c0,0.5-0.4,0.9-0.9,0.9h-1.4c-0.5,0-0.9-0.4-0.9-0.9l0,0c0-0.5,0.4-0.9,0.9-0.9h1.4
+						C17.2,22.3,17.6,22.7,17.6,23.2L17.6,23.2z">
+						</path>
+					<g>
+						<g>
+							<circle id="left-eye-open" class="st2" cx="10.8" cy="13.4" r="1.1"></circle>
+              <path style="display:none" stroke="null" id="left-eye-close" d="m12.982887,13.459018c0,0.281031 -0.540766,0.505856 -1.216723,0.505856l-1.89268,0c-0.675957,0 -1.216723,-0.224825 -1.216723,-0.505856l0,0c0,-0.281031 0.540766,-0.505856 1.216723,-0.505856l1.89268,0c0.675957,0 1.216723,0.224825 1.216723,0.505856l0,0z" class="st2"></path>
+						</g>
+						<g>
+							<circle id="right-eye-open" class="st2" cx="21.2" cy="13.4" r="1.1"></circle><path stroke="null" id="right-eye-close" style="display:none" d="m23.568462,13.571631c0,0.281031 -0.540765,0.505856 -1.216722,0.505856l-1.89268,0c-0.675957,0 -1.216722,-0.224825 -1.216722,-0.505856l0,0c0,-0.281031 0.540765,-0.505856 1.216722,-0.505856l1.89268,0c0.675957,0 1.216722,0.224825 1.216722,0.505856l0,0z" class="st2"></path>
+            </g>
+						<path class="st3" d="M21.2,8.8c-2.3,0-4.3,1.8-4.6,4h-1.1c-0.1,0-0.1,0-0.1,0c-0.3-2.3-2.2-4-4.6-4c-2.5,0-4.6,2.1-4.6,4.6
+							c0,2.5,2.1,4.6,4.6,4.6c2.3,0,4.3-1.8,4.6-4c0,0,0.1,0,0.1,0h1.1c0.3,2.3,2.2,4,4.6,4c2.5,0,4.6-2.1,4.6-4.6
+							C25.8,10.9,23.7,8.8,21.2,8.8z M10.9,16.8c-1.9,0-3.4-1.5-3.4-3.4S9,10,10.9,10c1.9,0,3.4,1.5,3.4,3.4S12.7,16.8,10.9,16.8z
+							 M21.2,16.8c-1.9,0-3.4-1.5-3.4-3.4s1.5-3.4,3.4-3.4c1.9,0,3.4,1.5,3.4,3.4S23.1,16.8,21.2,16.8z"></path>
+					</g>
+				</g>
+				</svg> </div>
+        <div class="col-md-4"> <svg xmlns="http://www.w3.org/2000/svg" class="dialog" viewBox="0 0 25 25">
+        <path d="M12 3c5.514 0 10 3.592 10 8.007 0 4.917-5.144 7.961-9.91 7.961-1.937 0-3.384-.397-4.394-.644-1 .613-1.594 1.037-4.272 1.82.535-1.373.722-2.748.601-4.265-.837-1-2.025-2.4-2.025-4.872 0-4.415 4.486-8.007 10-8.007zm0-2c-6.338 0-12 4.226-12 10.007 0 2.05.739 4.063 2.047 5.625.055 1.83-1.023 4.456-1.993 6.368 2.602-.47 6.301-1.508 7.978-2.536 1.417.345 2.774.503 4.059.503 7.084 0 11.91-4.837 11.91-9.961-.001-5.811-5.702-10.006-12.001-10.006z"></path>
+        <svg xmlns="http://www.w3.org/2000/svg" class="dialog" viewBox="0 0 110 110">
+        <text x="15" y="50" style="font-size:8px;" id="dialog-content">
+          <tspan id="ts1" x="15" y="50">Welcome! I'm calm.</tspan> 
+          <tspan id="ts2" x="15" y="60"></tspan>
+        </text> 
+  		</svg> </svg>
+        </div>
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-md-12">
+              <img class="img-fluid d-block" src="https://s3.amazonaws.com/symp.csm.usprod/washington/files/c04/c04d85577eca15ac64798558b230fd6c_160_160.png" width="2000px" height="200px"> </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-inline">
+                <input id="words" class="form-control" placeholder="text your answers here">
+                <button class="btn btn-success" onclick="sendMessage()">Send</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <div class="btn-group text-center">
+            <a href="#" class="btn btn-outline-primary" onclick="startEyeTrack()">Test my eyes</a>
+            <a href="#" class="btn btn-outline-primary" onclick="endEyeTrack()">End eyes test</a>
+            <a href="#" class="btn btn-outline-primary" onclick="init()">Test your pingpang level</a>
+            <a href="#" class="btn btn-outline-primary" onclick="turnNeutral()">restore</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    ileftEyeX = 158
+    ileftEyeY = 150
+    irightEyeX = 360
+    irightEyeY = 150
+    function turnNeutral(){
+      $('#active-mouse').hide()
+      $('#negative-mouse').hide()
+      $('#neutral-mouse').show()
+      $('#ts1').text("Welcome! I'm calm.")
+      $('#ts2').text("")
+    }
+
+    function turnActive(){
+      $('#active-mouse').show()
+      $('#negative-mouse').hide()
+      $('#neutral-mouse').hide()
+      $('#ts1').text("I'm happy!")
+      $('#ts2').text("")
+    }
+
+    function turnNegative(){
+      $('#active-mouse').hide()
+      $('#negative-mouse').show()
+      $('#neutral-mouse').hide()
+      $('#ts1').text("I'm sad...")
+      $('#ts2').text("")
+    }
+
+    function changeFace(){
+      if (faceStatus%3==0){
+        turnActive()
+      }
+      else if(faceStatus%3==1){
+        turnNegative()
+      }
+      else{
+        turnNeutral()
+      }
+      faceStatus++
+    }
+  </script>
+  <script>
+    $("#face").mousemove(function(e){
+      if(track){
+        mousex = e.pageX
+        mousey = e.pageY
+        x = mousex
+        y = mousey
+        reDrawEyes(x,y)
+      }
+    })
+
+    function reDrawEyes(x,y){
+      radius = 13.4-8.8
+      rDx = x-irightEyeX
+      rDy = y-irightEyeY
+      lDx = x-ileftEyeX
+      lDy = y-ileftEyeY
+
+      rhypotenuse = Math.sqrt(Math.pow(rDx,2)+Math.pow(rDy,2))
+
+
+      ratio = rhypotenuse/radius
+
+      rdx = (rDx/ratio)*5
+      rdy = (rDy/ratio)*5
+
+      rcx = irightEyeX+rdx
+      rcy = irightEyeY+rdy
+
+
+      ratiox = irightEyeX/21.2
+      ratioy = irightEyeY/13.4
+
+      rcx = rcx/ratiox
+      rcy = rcy/ratioy
+
+      ddx = rcx-21.2
+      ddy = rcy-13.4
+      lcx = 10.8+ddx
+      lcy = 13.4+ddy
+      rcx = rcx+""
+      rcy = rcy+"" 
+      lcx = lcx+""
+      lcy = lcy+"" 
+      // alert(irightEyeX)
+      // "class="st2" cx="10.8" cy="13.4" r="1.1""
+      $("#right-eye-open").attr({'cx':rcx,'cy':rcy,'r':'1.1'})
+      $("#left-eye-open").attr({'cx':lcx,'cy':lcy,'r':'1.1'})
+    }
+  </script>
+  <script>
+    function startEyeTrack(){
+      track = true
+      clearInterval(int)
+    }
+
+    function endEyeTrack(){
+      track = false
+      $("#right-eye-open").attr({'cx':10.8,'cy':13.4,'r':'1.1'})
+      $("#left-eye-open").attr({'cx':21.2,'cy':13.4,'r':'1.1'})
+      clearInterval(int)
+      int = setInterval("closeEye()",3500)
+    }
+  </script>
+  <script>
+    var answer1 = ""
+    var answer2 = ""
+    var round = 0
+
+    function isNumber(value) {
+      var patrn = /^[0-9]*$/;
+      if (patrn.exec(value) == null || value == "") {
+          return false
+      } 
+      else {
+          return true
+      }
+    }
+
+    function init(){
+      round = 0
+      ask(round)
+    }
+    function sendMessage(){
+      pass=false
+      if($("#words").val()==""||(($("#words").val()!='male')&&($("#words").val()!='female'))){
+        if(round==1){
+          $('#ts1').text('please give an')
+          $('#ts2').text('appropriate answer...')     
+        }
+        else{
+          if(round==2){
+           if(isNumber($("#words").val())){
+              pass=true
+              answer2 = $("#words").val()
+              $("#words").val("")
+            }
+            else{
+              $('#ts1').text('please give an')
+              $('#ts2').text('appropriate answer...')   
+              pass=false
+            }
+          }
+          if(pass){
+            $("#words").val("")
+            console.log(round)          
+            ask(round)
+          }
+        }
+      }
+      else{
+          if(round==1){
+            answer1 = $("#words").val()
+            $("#words").val("")
+            pass=true 
+          }
+          else if(round==2){
+            if(isNumber($("#words").val())){
+              pass=true
+              answer2 = $("#words").val()
+              $("#words").val("")
+            }
+            else{
+              $('#ts1').text('please give an')
+              $('#ts2').text('appropriate answer...')   
+              pass=false
+            }
+          }
+        if(pass){
+          $("#words").val("")
+          console.log(round)          
+          ask(round)
+        }
+      }
+    }
+
+    function answer(){
+      var ts1=$('#ts1')
+      var ts2 = $("#ts2")
+      score = parseInt(answer2)
+      if(answer1=="male"){
+        if(score<1000){
+          ts1.text('you are still a novice.')
+          ts2.text('')
+        }
+        else if(score>=1000&score<2000){
+          ts1.text('you are a good')
+          ts2.text('amateur player.')
+        }
+        else if(score<3000&score>=2000){
+          ts1.text('you are a good')
+          ts2.text('professional player.')}
+        else if(score>=3000){
+          ts1.text('you are a top-class')
+          ts2.text(' player!')
+        }
+      }
+
+      else if(answer1=="female"){
+        if(score<800){
+          ts1.text('you are still a novice.')
+          ts2.text('')
+        }
+        else if(score>=800&score<1500){
+          ts1.text('you are a good')
+          ts2.text(" amateur player.")
+        }
+        else if(score<2500&score>=1500){
+          ts1.text('you are a good')
+          ts2.text("professional player.")}
+        else if(score>=2500){
+          ts1.text('you are a top-class')
+          ts2.text(" player!")
+        }
+      }
+      else{
+        ts1.text('finish!')
+        ts2.text("")
+      }
+      
+      round = -1
+
+    }
+
+    function ask(number){
+      isChat = true
+      if(number==0){
+        $("#ts1").text("What's your sex?")
+        $("#ts2").text("")
+      }
+      else if(number==1){
+        $("#ts1").text("What's your score?")
+        $("#ts2").text("")
+      }
+      else if(number==2){
+        answer()
+      }
+     
+      round++
+
+    }
+  </script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+</body>
+
+</html>
